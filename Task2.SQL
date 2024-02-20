@@ -11,15 +11,13 @@ SELECT SUM(POPULATION) FROM CITY WHERE DISTRICT = 'California';
 SELECT COUNT(NAME) FROM CITY WHERE POPULATION > 100000
 
 --Problem 5
-SELECT CASE
-        WHEN A + B > C AND B + C > A AND A + C > B THEN
-            CASE
-                WHEN A = B AND B = C THEN 'Equilateral'
-                WHEN A = B OR B = C OR A = C THEN 'Isosceles'
-                ELSE 'Scalene'
-            END
-        ELSE 'Not A Triangle'
-    END 
+SELECT
+CASE
+    WHEN (A + B <= C OR B + C <= A OR A + C <= B) THEN 'Not A Triangle'
+    WHEN (A = B AND B = C) THEN 'Equilateral'
+    WHEN (A = B OR B = C OR A = C) THEN 'Isosceles'
+    ELSE 'Scalene'
+END 
 FROM TRIANGLES;
 
 
